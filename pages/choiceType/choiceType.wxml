@@ -1,0 +1,16 @@
+<view class='choice-type'>
+  <view class='item p4 white-bg {{_payTypeId==item.payTypeId ? "cur":""}}' wx:for='{{proType}}' data-amount='{{item.amount}}' data-id='{{item.productId}}' data-type='{{item.payTypeId}}' bindtap='choiceType' wx:key="">
+    <view class='item-tit flex f-j-between'>
+      <text class='red f28'>￥<text class='f36'>{{item.amount}}</text></text>
+      <text class='f24 gray-b'>支持人数：{{item.count}}人</text>
+    </view>
+    <!-- <view class='item-con f28'>{{item.repayContent}}</view> -->
+    <rich-text  class='item-con f28' nodes="{{item.repayContent}}"></rich-text>
+    <view class='item-data gray-8 f28'>预计{{item.repayDay}}日回报</view>
+    <image class='item-icon' src='../../images/icon_10.png'></image>
+  </view>
+</view>
+
+<view class='bot-btn white-bg' bindtap='toConfirmOrder'>
+  <button class='pro-d-btn f32 white'>去支持</button>
+</view>

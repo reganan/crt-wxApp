@@ -1,0 +1,233 @@
+<scroll-view scroll-y scroll-into-view="{{toView}}">
+
+<view class='warm-msg red f28 flex f-a-center'>
+  <text class='t-bold f-shrink0'>重要：</text>
+  <text>本产品众筹期间如遇非质量、物流、人力等不可抗因素，暂不支持退款或退货。</text>
+</view>
+
+<view data-action='order' bindtap='saveData'>
+  <block wx:if='{{orderInfo.defAddress == null}}'>  
+      <view class='no-addr white-bg f28 t-center gray-8 {{addrErr}}' id='addr'>
+        没有地址信息，请点击添加地址
+      </view>  
+  </block>
+  <block wx:else>
+    <view class='addr-info white-bg f28 flex f-a-center'>
+      <image class='addr-info-img f-shrink0' src='../../images/icon_7.png'></image>
+      <view class='f-grow1'>
+        <text class='block f30' space='true'>{{orderInfo.defAddress.receiverName}} {{orderInfo.defAddress.receiverPhone}}</text>
+        <text class='block f28 gray-8'>{{orderInfo.defAddress.receiverAddress}}</text>
+      </view>
+      <image class='addr-info-arrow f-shrink0' src='../../images/icon_9.png'></image>
+    </view>    
+  </block>
+</view>
+
+<view class='gap-20'></view>
+
+<view class='c-p-info clear white-bg'>
+  <image class='c-p-img left' src='{{orderInfo.proImg}}'></image>
+  <view class='c-p-text'> 
+    <text class='block t-overflow f32'>{{orderInfo.title}}</text>
+    <text class='c-p-font block t-overflow f28 gray-8'>{{orderInfo.subTitle}}</text>
+    <text class='f32 red'>￥{{orderInfo.amount}}</text>
+  </view>
+</view>
+
+<!-- 投资 -->
+<block wx:if='{{orderInfo.category == 1}}'>
+  <block wx:if='{{orderInfo.isRepay == 1}}'><!-- 有回报实物 目前为香榧鸡众筹-->
+    <view class='buy-info p4 white-bg f28'>
+      <view class='buy-num buy-num1 flex f-j-between f-a-center'>
+        <!-- ableBuyNum为0表示不限购 -->
+        <text class='f28'>购买数量<text class='f24 gray-b' wx:if='{{orderInfo.ableBuyNum != 0}}'>（每人限购{{orderInfo.ableBuyNum}}份）</text></text>
+        <view>
+          <button bindtap='bindMinus'>-</button>
+          <input value='{{buyNum}}' type='number' disabled='true'></input>
+          <button bindtap='bindPlus'>+</button>
+        </view>
+      </view>
+
+      <view class='buy-num flex f-j-between f-a-center'>
+        <text  class='f28'>期望提货数量<text class='f24 gray-b'>（至少{{orderInfo.repayMinCount * buyNum}}只）</text></text>
+        <view>
+          <button bindtap='bindJian'>-</button>
+          <input value='{{pickNum}}' type='number' disabled='true'></input>
+          <button bindtap='bindJia'>+</button>
+        </view>
+      </view>
+
+      <view class='buy-msg f28'>
+        <text class='block'>今日购买，预计<text class='orange'> {{orderInfo.repayDate}} </text>日可获得</text>
+        <text class='block gray-8'>1.  {{orderInfo.repayName}} <text class='orange'>{{pickNum}}</text> 只；</text>
+        <text class='block gray-8'>2.  余下{{orderInfo.repayName}}销售款<text class='orange'> {{remainMoney}} </text> 元；</text>
+        <text class='block gray-8'>3.  <text class='orange'>{{orderInfo.giftCount}} </text>{{orderInfo.giftUnit}}{{orderInfo.giftName}}。</text>
+      </view>
+    </view>
+
+    <view class='gap-20'></view>
+    
+    <view data-action='personal' bindtap='saveData' wx:if='{{orderInfo.personalInfo == null}}'>
+      <view class='c-no-bank gray-8 t-center f28 {{infoErr}}' id='info'>请点击添加银行信息，用于获得回报销售款</view>
+    </view>
+    
+    <block wx:else>
+      <view class='c-bank p4 flex f-j-between f28'>
+        <view>
+          <text class='block'>{{orderInfo.personalInfo.realName}}   {{orderInfo.personalInfo.mobilePhone}}</text>
+          <text class='block gray-8'>{{orderInfo.personalInfo.idCard}}</text>
+        </view>
+        <view>
+          <text class='block t-overflow'>{{orderInfo.personalInfo.bankName}}({{orderInfo.personalInfo.bankInfo}})</text>
+          <text class='block gray-8'>{{orderInfo.personalInfo.bankCard}}</text>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:if='{{orderInfo.isRepay == 2}}'><!-- 无回报实物 -->
+    <view class='p4 white-bg c-buy1'>   
+      <view class='buy-msg f28'>
+        <text class='block'>今日购买，预计<text class='orange'>{{orderInfo.repayDate}}</text>日回报</text>      
+        <rich-text  class='gray-8 t-justify' nodes='{{orderInfo.repayContext}}'></rich-text>
+      </view>
+    </view>
+  </block>
+
+  <view class='gap-20'></view>
+
+  <view class='c-money p4 f28 white-bg'>
+    <view class='buy-num  flex f-j-between f-a-center' wx:if='{{orderInfo.isRepay == 2}}'>      
+        <text class='f28'>购买数量<text class='f24 gray-b' wx:if='{{orderInfo.ableBuyNum != 0}}'>（每人限购{{orderInfo.ableBuyNum}}份）</text></text>
+        <view>
+          <button bindtap='bindMinus'>-</button>
+          <input value='{{buyNum}}' type='number' disabled='true'></input>
+          <button bindtap='bindPlus'>+</button>
+        </view>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>总价：</text>
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>预计可获得：</text>
+      <view class='t-right'>
+        <text class='red block'>￥<text class='f36'>{{remainMoney}}</text></text>
+        <block  wx:if='{{orderInfo.isRepay == 1}}'>
+          <text class='block'>{{pickNum}}{{orderInfo.repayUnit}}{{orderInfo.repayName}}</text>
+        </block>
+        <text class='block'>{{orderInfo.giftCount}}{{orderInfo.giftUnit}}{{orderInfo.giftName}}</text>                
+      </view>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>运费：</text>
+      <text>￥{{orderInfo.freight}}</text>
+    </view>
+  </view>
+  
+  <view class='c-m-item1 gray-b p4 f28 white-bg {{agreeErr}}' id='agree'>
+    <checkbox-group bindchange="service_agree">
+      <checkbox value='agree' color='#1732a5'></checkbox>
+      阅读并同意<navigator class='in-block' url='../contractModel/contractModel'><text>《认购协议》</text></navigator>
+    </checkbox-group>
+  </view>
+
+  <block wx:if='{{orderInfo.isRepay == 2}}'><!-- 无回报实物 -->
+    <view class='gap-20'></view>
+
+    <view data-action='personal' bindtap='saveData' wx:if='{{orderInfo.personalInfo == null}}'>
+      <view class='c-no-bank gray-8 t-center f28 {{infoErr}}' id='info'>请点击添加银行信息，用于获得回报销售款</view>
+    </view>
+    
+    <block wx:else>
+      <view class='c-bank p4 flex f-j-between f28'>
+        <view>
+          <text class='block'>{{orderInfo.personalInfo.realName}}   {{orderInfo.personalInfo.mobilePhone}}</text>
+          <text class='block gray-8'>{{orderInfo.personalInfo.idCard}}</text>
+        </view>
+        <view>
+          <text class='block t-overflow'>{{orderInfo.personalInfo.bankName}}({{orderInfo.personalInfo.bankInfo}})</text>
+          <text class='block gray-8'>{{orderInfo.personalInfo.bankCard}}</text>
+        </view>
+      </view>
+    </block>
+
+  </block>
+
+</block>
+
+<!-- 购买 -->
+<block wx:if='{{orderInfo.category == 2}}'>
+  <view class='p4 white-bg c-buy1'>   
+    <view class='buy-msg f28'>
+      <text class='block'>今日购买，预计<text class='orange'>{{orderInfo.repayDate}}</text>日回报</text>      
+      <rich-text  class='gray-8 t-justify' nodes='{{orderInfo.repayContext}}'></rich-text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view class='c-money p4 f28 white-bg'>
+    <view class='buy-num  flex f-j-between f-a-center'>      
+        <text class='f28'>购买数量<text class='f24 gray-b' wx:if='{{orderInfo.ableBuyNum != 0}}'>（每人限购{{orderInfo.ableBuyNum}}份）</text></text>
+        <view>
+          <button bindtap='bindMinus'>-</button>
+          <input value='{{buyNum}}' type='number' disabled='true'></input>
+          <button bindtap='bindPlus'>+</button>
+        </view>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>总价：</text>
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class='c-m-item flex f-j-between no-border'>
+      <text>运费：</text>
+      <text>￥{{orderInfo.freight}}</text>
+    </view>
+  </view>
+
+</block>
+
+<view  class='bot-btn clear white-bg' wx:if='{{orderInfo.category == 1 || orderInfo.category == 2}}'>
+  <text class='bot-btn1 left f28 t-right'>合计：{{total}}元</text>
+  <text class='bot-btn2 right f34 white t-center' bindtap='payOrder'>提交订单</text>
+</view>
+
+<!-- 友情转发 -->
+<block wx:if='{{orderInfo.category == 3}}'>
+    <view class='buy-info p4 white-bg f28'>
+    <view class='buy-num buy-num1 flex f-j-between f-a-center'>
+      <text  class='f28'>购买数量</text>
+      <view>
+        <text class='f28'>x</text><text class='f28'> 1</text>
+      </view>
+    </view>
+
+    <view class='buy-msg f28'>
+      <text class='block'>今日购买，预计<text class='orange'>{{orderInfo.repayDate}}</text>日回报</text>      
+      <rich-text  class='gray-8 t-justify' nodes='{{orderInfo.repayContext}}'></rich-text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view class='c-money p4 f28 white-bg'>
+    <view class='c-m-item flex f-j-between'>
+      <text>总价：</text>
+      <text>￥{{orderInfo.amount}}</text>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>运费：</text>
+      <text>￥{{orderInfo.freight}}</text>
+    </view>
+  </view>
+
+  <view  class='bot-btn clear white-bg'>
+    <text class='bot-btn1 left f28 t-right'>合计：{{orderInfo.amount + orderInfo.freight}}元</text>
+    <button class='bot-btn3 right f34 white t-center' wx:if='{{orderInfo.defAddress == null}}' bindtap='toshare'>轻松助力</button>
+    <button class='bot-btn3 right f34 white t-center' open-type="share" wx:else>轻松助力</button>
+  </view>
+</block>
+
+<view class='bot-view'></view>
+</scroll-view>

@@ -1,0 +1,132 @@
+<video id="proVedio" class='block' src="{{prodDetail.bannerUrl}}" wx:if='{{prodDetail.bannerType==1}}'></video>
+<image class='banner block img100' wx:else src="{{prodDetail.bannerUrl}}"></image>
+
+<view class='pro-detail white-bg p4'>
+  <view class='item-title'>
+    <text class='item-icon f24 white'>{{prodDetail.status}}</text>
+    <text class='item-tit f32'>{{prodDetail.title}}</text>
+  </view>
+  <text class='item-subtit block gray-b f28'>{{prodDetail.subTitle}}</text>
+  <view class='process'>
+    <view class='process-con' style='width:{{prodDetail.ratio}}%'>
+      <block wx:if='{{prodDetail.ratio<9}}'>
+        <view class='f24 white process-num t-center' style='right:-63rpx'>{{prodDetail.ratio}}%</view>
+      </block>
+      <block wx:else>
+        <view class='f24 white process-num t-center' style='right:-2rpx'>{{prodDetail.ratio}}%</view>
+      </block>
+    </view>
+  </view>
+
+  <view class='item-bot flex f-a-center f24'>
+    <view class='t-center f-grow1'>
+      ￥<text class='f36'>{{prodDetail.raiseAmount}}</text>
+      <text class='block gray-b'>目标{{prodDetail.totalAmount}}元</text>
+    </view>
+    <view class='line'></view>
+    <view class='t-center f-grow1'>
+      <text class='f36'>{{prodDetail.lastDay}}</text>天
+      <text class='block gray-b'>剩余时间</text>
+    </view>
+    <view class='line'></view>
+    <view class='t-center f-grow1'>
+      <text class='f36'>{{prodDetail.raiseCount}}</text>人
+      <text class='block gray-b'>支持人数</text>
+    </view>
+  </view>
+
+</view>
+
+<view class='gap-20'></view>
+
+<block wx:if='{{prodDetail.saleStatus==1}}'>
+<view class='pro-choice white-bg p4 flex f-j-between f28 f-a-center'>
+  <text><text class='gray-8 pro-choice-info'>已选</text>支持{{prodDetail.payType}}元</text>
+  <image class='pro-choice-arrow' src='../../images/icon_9.png'></image>
+</view>
+</block>
+<block wx:else>
+<view class='pro-choice white-bg p4 flex f-j-between f28 f-a-center' bindtap='toChoiceType'>
+  <text><text class='gray-8 pro-choice-info'>已选</text>支持{{prodDetail.payType}}元</text>
+  <image class='pro-choice-arrow' src='../../images/icon_9.png'></image>
+</view>
+</block>
+
+<view class='gap-20'></view>
+
+<view class='pro-imgs white-bg'>
+  <text class='p4 f30 item-tit block'>项目详情</text>
+  <block wx:for="{{prodDetail.proDetail}}" wx:key="">
+    <image class='img100' src='{{item}}' mode='widthFix'></image>
+  </block>  
+</view>
+
+<view class='gap-20'></view>
+
+<view class='pro-process white-bg p4'>
+  <text class='f30 item-tit block'>项目进展</text>  
+  <text wx:if="{{prodDetail.evolve==null}}" class='item-none block t-center gray-b f28'>暂无进展</text>
+  
+  <block wx:else>
+    <view class='pro-process-con'>
+      <view  class='item-con f28 clear' wx:for='{{prodDetail.evolve}}'  wx:key="">       
+        <view class='item-dot left'>
+        <!-- <view class='item-line'></view> -->
+        </view>        
+        <text class='item-time block left'>{{item.evolveTime}}</text>
+        <text class='item-text block left'>{{item.evolveContext}}</text>
+      </view>
+    </view>
+  </block>
+
+</view>
+
+<!-- <view class='gap-20'></view>
+
+<view class='other-pro index-pro white-bg p4'>
+  <text class='other-pro-tit block f30 gray-3'>其他项目</text>
+
+  <block wx:for="{{prodDetail.other}}" wx:key="">
+    <view class='item' data-id='{{item.id}}' bindtap='toNotPublish'>
+      <image class='item-img other-pro-img' src="{{item.url}}"></image>
+      <view class='clear'>
+        <view class='itemL f28 left'> 
+            <text class='item-tit t-overflow block f32'>{{item.title}}</text>
+            <text class='item-subtit t-overflow block gray-b'>{{item.subTitle}}</text>
+        </view>
+        <text class='item-price f32 t-overflow block right t-right'>￥{{item.amount}}</text>
+      </view>
+    </view>
+  </block>
+</view> -->
+
+<view class='bot-btn white-bg'>
+  <button class='pro-d-btn disabled-btn f32 white' wx:if='{{prodDetail.saleStatus==1}}'>不可下单，请期待下期活动</button>
+  <button class='pro-d-btn f32 white' wx:else  bindtap='toChoiceType'>去支持</button>
+</view>
+
+<!-- 协议弹框 -->
+ <view class='bomb-box' wx:if='{{showBombStatus}}'>
+  <view class='black-bg'></view>
+  <view class='box-con white-bg center'>
+    <text class='item-tit block t-center f36'>温馨提示</text>
+    <view class='item-con f28'>
+      <text>我已阅读并同意以下协议：</text>
+      <navigator class='gold' url='../commitment/commitment'><text class='f36'>·</text>《产融通众筹参与者规则》</navigator>
+      <navigator class='gold' url='../userProtocol/userProtocol'><text class='f36'>·</text>《用户协议》</navigator>
+    </view>
+    <view class='item-bot f34 clear t-center'>
+      <!-- <view class='item-btn item-btn1 left' bindtap='closeBomb'>关闭</view> -->
+      <view class='item-btn gold left' bindtap='agreeBomb'>确定</view>
+    </view>
+  </view>
+</view> 
+
+<!-- 授权弹层 -->
+<view class='authorize-box' wx:if='{{showAuthorizeStatus}}'>
+  <view class='black-bg'></view>
+  <view class='authorize-con white-bg center'>
+    <text class='authorize-tit block t-center f36'>登录产融通</text>
+    <button class='authorize-btn f36 white'  open-type="getUserInfo" bindgetuserinfo="toGotUserInfo" bindtap='gotUserInfo'><image class='authorize-btn-img' src='../../images/wxlogo.png'></image>微信账号快速登录</button>
+  </view>  
+</view>

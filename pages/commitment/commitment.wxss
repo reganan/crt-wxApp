@@ -1,0 +1,14 @@
+page{
+line-height: 38rpx;
+padding: 0 0 50rpx 0
+}
+.item-tit{
+  line-height: 120rpx;
+}
+.item-text{
+  
+  text-indent: 2em
+}
+.item-title{
+  margin: 20rpx 0 0 0
+}

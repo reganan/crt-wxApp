@@ -1,0 +1,46 @@
+.no-addr{
+  line-height: 88rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.addr-info{
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 30rpx 4%
+}
+.addr-info-img{
+  width: 34rpx;
+  height: 38rpx;
+  margin: 0 25rpx 0 0;
+}
+.addr-info-arrow{
+  width: 16rpx;
+  height: 25rpx;
+  margin: 0 0 0 25rpx;
+}
+.c-p-info{
+  padding: 30rpx 4%;  
+}
+.c-p-img{
+  width: 300rpx;
+  height: 130rpx;
+}
+.c-p-text{
+  margin: 0 0 0 320rpx;
+  height: 130rpx;
+}
+.c-p-font{
+  margin: 56rpx 0 0;
+}
+.pro-d-btn{
+  width: 92%;
+  height: 86rpx;
+  line-height: 86rpx;
+  border: 1rpx solid #c18c4a;
+  background: #dbab6f;
+  margin: 30rpx auto
+}
+.errmsg{
+  box-sizing: border-box;
+  border: 1px solid #cc3333; 
+}

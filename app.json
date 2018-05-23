@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/order/order",
+    "pages/personal/personal",
+    "pages/proDetail/proDetail",
+    "pages/notPublish/proDetail",
+    "pages/personalInfo/personalInfo",
+    "pages/address/address",
+    "pages/addAddress/addAddress",
+    "pages/choiceType/choiceType",
+    "pages/confirmOrder/confirmOrder",
+    "pages/commitment/commitment",
+    "pages/contractModel/contractModel",
+    "pages/orderDetail/orderDetail",
+    "pages/contract/contract",
+    "pages/userProtocol/userProtocol",
+    "pages/aboutUs1/aboutUs1",
+    "pages/aboutUs2/aboutUs2",
+    "pages/shareSuccess/shareSuccess",
+    "pages/invite/invite",
+    "pages/inviteDetail/inviteDetail",
+    "pages/giftConfirm/giftConfirm",
+    "pages/proedDetail/proedDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "产融通",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#d2a061",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "精选",
+        "iconPath": "images/icon_1a.png",
+        "selectedIconPath": "images/icon_1.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/icon_2a.png",
+        "selectedIconPath": "images/icon_2.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "images/icon_3a.png",
+        "selectedIconPath": "images/icon_3.png"
+      }
+    ]
+  }
+}

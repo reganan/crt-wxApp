@@ -1,0 +1,12 @@
+<block wx:if='{{inviteDetail.length>0}}'>
+  <view class='item flex f-a-center f30 white-bg' wx:for='{{inviteDetail}}'>
+    <image class='item-img f-shrink0' src='{{item.headImg}}'></image>
+    <view class='f-grow1'>
+      <view class='item-name'>{{item.userName}}</view>
+      <view>{{item.operTime}}</view>
+    </view>
+    <view class='item-amount f-shrink0 red'>+{{item.amount}}</view>
+  </view>
+</block>
+
+<view wx:else class='t-center f30 no-item gray-8'> 暂无数据 </view>

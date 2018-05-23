@@ -1,0 +1,83 @@
+<view class='order'>
+  <block wx:if='{{orderList.length==0}}'>
+    <view class='t-center f30 no-item gray-8'>
+        暂无订单
+    </view>
+  </block>
+  <block wx:else>
+    <navigator class='item p4 white-bg'  wx:for="{{orderList}}" wx:key="" url="../orderDetail/orderDetail?orderNo={{item.orderNo}}">
+      <view class='item-bot flex f-j-between f-a-center f28'>
+        <block wx:if='{{item.orderType==2}}'>
+          <text class='gold'>邀请有礼订单</text>
+        </block>
+        <block wx:elif='{{item.orderType==1}}'>
+          <text class='gold'>转发分享订单</text>
+        </block>
+        <block wx:else>
+          <text>预计 <text class='gold'>{{item.repayTime}}</text> 日回报</text>
+        </block>        
+        <text wx:if='{{item.orderType!=2}}'>{{item.payStatus==2?'退款中':item.payStatus==3?'退款成功':'支持成功'}}</text>
+        <text wx:else>{{item.status}}</text>
+      </view>
+
+      <block wx:if='{{item.orderType!=2}}'>
+        <view class='item-top clear'>
+          <image class='item-img left' src='{{item.proImg}}'></image>
+          <view class='item-con'>
+            <text class='f32 t-overflow block'>{{item.title}}</text>
+            <text class='f28 gray-b t-overflow block item-subtit'>{{item.subTitle}}</text>
+            <view class='flex f-j-between f-a-center'>
+              <block wx:if='{{item.orderType==1}}'>
+                <text class='f28'>友情支持</text>
+              </block>              
+              <block wx:else>
+              <text class='f32'>￥{{item.amount}}</text>
+              </block>            
+              <text class='f28 gray-8'>x {{item.buyNum}}</text>
+            </view>
+          </view>        
+        </view>
+        <view class='item-status f26 white t-center'>{{item.status}}</view>
+      </block>
+      <block wx:else>
+        <view class='item-top clear'>          
+          <image class='item-img1 left' src='{{item.proImg}}'></image>
+          <view class='item-con item-con1'>
+            <text class='f32 t-overflow block'>{{item.title}}</text>            
+            <view class='flex f-j-between f-a-center item-text1'>
+              <text></text>
+              <text class='f28 gray-8'>x {{item.buyNum}}</text>
+            </view>
+          </view>        
+        </view>
+      </block>
+
+    </navigator>
+  </block>
+</view>
+<!-- 协议弹框 -->
+<view class='bomb-box' wx:if='{{showBombStatus}}'>
+  <view class='black-bg'></view>
+  <view class='box-con white-bg center'>
+    <text class='item-tit block t-center f36'>温馨提示</text>
+    <view class='item-con f28'>
+      <text>我已阅读并同意以下协议：</text>
+      <navigator class='gold' url='../commitment/commitment'><text class='f36'>·</text>《产融通众筹参与者规则》</navigator>
+      <navigator class='gold' url='../userProtocol/userProtocol'><text class='f36'>·</text>《用户协议》</navigator>
+    </view>
+    <view class='item-bot f34 clear t-center'>
+       <!-- <view class='item-btn item-btn1 left' bindtap='closeBomb'>关闭</view>  -->
+      <!-- <view class='item-btn item-btn1 left'>关闭</view> -->
+      <view class='item-btn gold left' bindtap='agreeBomb'>确定</view>
+    </view>
+  </view>
+</view>
+
+<!-- 授权弹层 -->
+<view class='authorize-box' wx:if='{{showAuthorizeStatus}}'>
+  <view class='black-bg'></view>
+  <view class='authorize-con white-bg center'>
+    <text class='authorize-tit block t-center f36'>登录产融通</text>
+    <button class='authorize-btn f36 white'  open-type="getUserInfo" bindgetuserinfo="toGotUserInfo" bindtap='gotUserInfo'><image class='authorize-btn-img' src='../../images/wxlogo.png'></image>微信账号快速登录</button>
+  </view>  
+</view>

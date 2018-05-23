@@ -1,0 +1,44 @@
+.item{
+  margin: 20rpx 0 0 0;
+  position: relative;
+}
+.item-img{
+  width: 160rpx;
+  height: 150rpx;
+}
+.item-img1{
+  width: 250rpx;
+  height: 110rpx;
+}
+.order .item-con{
+  margin: 0 0 0 180rpx
+}
+.order .item-con1{
+  margin: 0 0 0 270rpx
+}
+.item-text1{
+  margin: 30rpx 0 0 0;
+}
+.item-subtit{
+  margin: 0rpx 0 20rpx 0;
+}
+.item-top{
+  padding: 30rpx 0 25rpx;
+  border-top: 1px solid #f1f1f1;  
+}
+.item-bot{
+  height: 78rpx
+}
+.no-item{
+  line-height: 150rpx
+}
+.item-status{
+  position: absolute;
+  width: 125rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  background: #e94f4f;
+  left:0;
+  top:95rpx;
+  border-radius: 0 10rpx 10rpx 0;
+}

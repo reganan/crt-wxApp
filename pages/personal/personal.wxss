@@ -1,0 +1,42 @@
+.item-icon{
+  width: 34rpx;
+  height: 38rpx;
+  vertical-align: middle;
+  margin: 0 25rpx 0 0;
+  position: relative;
+  top:-2rpx;
+}
+.item-arrow{
+  width: 18rpx;
+  height: 26rpx
+}
+.pers-img{
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 10rpx;
+  vertical-align: middle;
+  margin: 0 30rpx 0 0
+}
+.personal-top{
+  border-top:1px solid #f5f5f5;
+  padding: 25rpx 4%;
+}
+.personal-item{
+  height: 88rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.item-phone{
+  color: #e0b07e;
+  font-weight: bold;
+  font-style: italic
+}
+.item-dot{
+  width: 12rpx;
+  height: 12rpx;
+  background: #d80000;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  top:14rpx;
+  margin: 0 15rpx 0 0;
+}

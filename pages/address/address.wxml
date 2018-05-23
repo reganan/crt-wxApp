@@ -1,0 +1,26 @@
+<block wx:if='{{addList.length==0}}'>
+  <view class='t-center f30 no-item gray-8'>
+      暂无数据
+  </view>
+</block>
+<block wx:else>
+  <view class='address '>
+    <view class='item white-bg p4 flex f-a-center' wx:for='{{addList}}' wx:key="">
+      <view class='item-info' bindtap='selectAddr' data-name='{{item.receiverName}}' data-phone='{{item.receiverPhone}}' data-addr='{{item.receiverAddress}}'>
+        <text class='block f30'>{{item.receiverName}}<text class='item-phone'>{{item.receiverPhone}}</text><text wx:if='{{item.isDef==1}}'  class='gold item-isDef f24 in-block'>默认</text></text>
+        <text class='item-text gray-8 f28'>{{item.receiverAddress}}</text>
+      </view>
+      
+      <navigator url="../addAddress/addAddress?id={{item.id}}&prev={{prevPage}}" redirect>
+        <image class='icon-edit' src='../../images/icon_13.png'></image>
+      </navigator>
+      <image class='icon-del' src='../../images/icon_12.png' data-id='{{item.id}}' bindtap='delAddr'></image>
+    </view>
+  </view>
+</block>
+
+<view class='bot-btn'>
+  <navigator url="../addAddress/addAddress?prev={{prevPage}}&addrNum={{addrNum}}" redirect>
+    <button class='save-btn f34 gold'>+新增地址</button>
+  </navigator>
+</view>

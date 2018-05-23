@@ -1,0 +1,58 @@
+.personal-info{
+  margin: 15rpx 0 130rpx 0;
+}
+.item{
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom:1px solid #f1f1f1;
+  position: relative;
+}
+.item-last{
+  border: none
+}
+.item-label{
+  display: inline-block;
+  width: 175rpx;
+}
+input{
+  height: 100%;
+}
+.err-msg{
+  background: #e64340;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.bot-btn{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 4%;
+  position: fixed;
+  bottom: 0
+}
+.save-btn{
+  width: 100%;
+  height: 86rpx;
+  border: 1rpx solid #e0b07e;
+  background: #fff;
+}
+.code-btn{
+  width: 190rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  background: #e0b07e;
+  padding: 0;
+  border-radius: 0;
+  margin:12rpx 0 0 0;
+}
+.code-btn::after{
+  border: none
+}
+.warm-msg{
+  width: 92%;
+  box-sizing: border-box;
+  margin: 20rpx auto 5rpx;
+  background: #fef3f3;
+  border: 1px solid #f43530;
+  color: #f43530;
+  padding: 10rpx 4%;
+}

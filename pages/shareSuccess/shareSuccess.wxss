@@ -1,0 +1,22 @@
+page{
+  background:#fff;padding-top:100rpx;border-top:1rpx solid #eee;
+}
+.container{
+  text-align:center;
+}
+.title{
+  line-height:88rpx;color:#333;font-size:40rpx;
+}
+.text{
+  line-height:40rpx;color:#666;font-size:28rpx;margin-top:20rpx;margin-bottom:88rpx;
+}
+.text text{
+  display:block;
+}
+.homeButton{
+  background:none;color:#333;margin-top:40rpx;width: 80%;
+  
+}
+.homeButton::after{
+  border:#ddd solid 1px;
+}

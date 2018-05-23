@@ -1,0 +1,37 @@
+<!-- <view class='err-msg white f30 t-center'>卡号格式不正确</view> -->
+
+<view  class='add-address f30 white-bg p4'>
+  <view class='item flex'>
+    <text class='item-label'>收货人</text>
+    <input class='f-grow1' placeholder='姓名' value='{{receiverName}}' bindinput='receiverName_input'></input>    
+  </view>
+
+  <view class='item flex'>
+    <text class='item-label'>联系电话</text>
+    <input class='f-grow1' type='number' placeholder='手机号码' value='{{receiverPhone}}' bindinput='receiverPhone_input' maxlength='11'></input>    
+  </view>
+
+  <view class='item item-detail flex'>
+    <text class='item-label' type='idcard'>详细地址</text>
+    <textarea class='f-grow1' placeholder='街道门牌信息' value='{{receiverAddress}}' bindinput='receiverAddress_input'></textarea> 
+  </view>
+
+  <view class='item flex'>
+    <text class='item-label'>邮政编码</text>
+    <input class='f-grow1' type='number' placeholder='请输入邮政编码' value='{{postCode}}' bindinput='postCode_input' maxlength='6'></input>    
+  </view>
+
+  <view class='set-default'>
+    <checkbox-group bindchange="isDef_input">
+    <label class="checkbox">
+        <checkbox wx:if="{{isDef==0}}" color='#d2a061'></checkbox>
+        <checkbox checked='true'  color='#d2a061' wx:else></checkbox> <text>默认地址</text>
+    </label>
+    </checkbox-group>
+    
+  </view>
+</view>
+
+<view class='bot-btn'>
+  <button class='save-btn f34 gold' bindtap='add'>保存</button>
+</view>

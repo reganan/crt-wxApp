@@ -1,0 +1,60 @@
+.add-address{
+  border-top:1px solid #f1f1f1;
+  border-bottom:1px solid #f1f1f1;
+  margin: 15rpx 0 130rpx 0;
+}
+.item{
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom:1px solid #f1f1f1;
+  position: relative;
+}
+.item:last-child{
+  border: none
+}
+.item-label{
+  display: inline-block;
+  width: 175rpx;
+}
+input{
+  height: 100%;
+}
+.err-msg{
+  background: #e64340;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.bot-btn{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 4%;
+  position: fixed;
+  bottom: 0
+}
+.save-btn{
+  width: 100%;
+  height: 86rpx;
+  border: 1rpx solid #e0b07e;
+  background: #fff;
+}
+.item-detail{
+  height: 148rpx;
+  
+}
+textarea{
+  height: 100%;
+  width:auto;
+  box-sizing: border-box;    
+  line-height:44rpx;
+  padding: 26rpx 0;
+}
+.set-default{
+  height: 88rpx;
+  line-height: 88rpx;
+  padding:0 0 8rpx 0;
+}
+.set-default text{
+  position: relative;
+  top:5rpx;
+  margin: 0 0 0 10rpx;
+}

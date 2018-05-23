@@ -1,0 +1,100 @@
+page{
+  padding: 0 0 50rpx 0;
+}
+.addr-info{
+  padding: 30rpx 4%
+}
+.addr-info-img{
+  width: 34rpx;
+  height: 38rpx;
+  margin: 0 25rpx 0 0;
+}
+.addr-info-arrow{
+  width: 16rpx;
+  height: 25rpx;
+  margin: 0 0 0 25rpx;
+}
+.c-p-info{
+  padding: 30rpx 4%
+}
+.c-p-img{
+  width: 160rpx;
+  height: 150rpx;
+}
+.c-p-img1{
+  width: 250rpx;
+  height: 110rpx;
+}
+.c-p-text{
+  margin: 0 0 0 180rpx;
+}
+.c-p-text1{
+  margin: 0 0 0 270rpx;
+}
+.c-p-font{
+  margin: 15rpx 0 20rpx;
+}
+.c-p-font1{
+  margin: 30rpx 0 0 0;
+}
+
+.buy-msg{
+  padding: 20rpx 10rpx;
+  border-top:1rpx solid #f1f1f1;
+}
+.buy-info{
+  padding: 0 4% 35rpx;
+}
+.c-bank{
+  background: #f4fbff;
+  border-top: 1rpx solid #7ecef4;
+  border-bottom: 1rpx solid #7ecef4;
+  padding: 35rpx 4%;
+}
+.c-bank view{
+  width: 46%;
+  max-width: 49%;
+}
+.c-m-item{
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.c-m-item:last-child{
+  border: none
+}
+.c-m-item1{
+  line-height: 88rpx;
+}
+.c-m-item1 text{
+  color: #1732a5;
+}
+.order-top{
+  height: 95rpx;
+  line-height: 95rpx;
+  background: #cc3333;
+}
+.order-top1{
+  height: 55rpx;
+  line-height: 55rpx;
+  background: #cf6c4b;
+}
+.c-info{
+  line-height: 38rpx;
+  padding: 25rpx 4%;
+}
+.c-payMount,.toContract{
+   padding: 25rpx 4%;
+}
+.c-call{
+  width: 410rpx;
+  height: 63rpx;
+  line-height: 63rpx;
+  border: 1px solid #e0b07e;
+  margin: 20rpx auto 20rpx;
+}
+.refund{
+  width: 140rpx;
+  height: 63rpx;
+  line-height: 63rpx;  
+  margin: 20rpx auto 20rpx;
+}

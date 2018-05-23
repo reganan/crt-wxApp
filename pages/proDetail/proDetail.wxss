@@ -1,0 +1,156 @@
+page{
+  padding: 0 0 130rpx 0
+}
+#proVedio,.banner{
+  width: 100%;
+  height: 380rpx;  
+}
+.pro-detail {
+  padding: 0 4% 30rpx
+}
+.pro-detail .item-icon{
+  display: inline-block;
+  background: #cc3333;
+  padding: 2rpx 15rpx;
+  margin: 0 15rpx 0 0;
+}
+.pro-detail .item-title{
+  padding: 20rpx 0 10rpx
+}
+.pro-detail .item-bot{
+  height: 133rpx;
+  border:1px solid #fcede2;
+  background: #fffbf8;
+}
+.line{
+  width: 1px;
+  height: 30rpx;
+  background:#fcede2;
+}
+.pro-choice{
+  height: 90rpx;
+}
+.pro-choice-arrow{
+  width: 16rpx;
+  height: 25rpx;
+}
+.pro-choice-info{
+  margin: 0 35rpx 0 0;
+}
+.pro-imgs{
+  padding: 0 0 40rpx 0
+}
+.pro-imgs .item-tit,.other-pro-tit{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.pro-process .item-tit{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+.other-pro-img{
+  width: 100%;
+  height: 350rpx;
+}
+.index-pro .item-price{
+  width: 25%;
+  padding: 10rpx 20rpx 30rpx 0;
+  box-sizing: border-box;
+}
+.index-pro{
+  overflow: hidden
+}
+.index-pro .item{
+  height: 455rpx;
+  border: 1px solid #eee;
+  margin: 0 0 30rpx 0;
+}
+.index-pro .itemL{
+  width: 75%;
+  box-sizing: border-box;
+  padding: 0 0 0 20rpx;
+}
+.bot-btn{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 4%;
+  position: fixed;
+  bottom: 0
+}
+.pro-d-btn{
+  width: 100%;
+  height: 86rpx;
+  border: 1rpx solid #c18c4a;
+  background: #dbab6f;
+}
+.pro-process .item-none{
+  line-height: 120rpx;
+}
+.pro-process .item-dot{
+  width: 13rpx;
+  height: 13rpx;
+  background: #888;
+  margin: 0 25rpx;
+  border-radius: 50%;
+  position: relative;
+  top:25rpx;
+}
+.pro-process .item-line{
+  width: 1px;
+  height: 65rpx;
+  background: #888;
+  position: absolute;
+  top:-25rpx;
+  left: 6rpx;  
+}
+.pro-process .item-time{
+  /* margin: 0 45rpx 0 0; */
+  width: 30%
+}
+.pro-process .item-con{
+  color: #888;
+  line-height: 60rpx;
+}
+.pro-process .item-con:last-child{
+  color: #000;
+}
+.pro-process .item-con:last-child .item-dot{
+  background: #000;
+}
+.pro-process .item-con:last-child .item-line{
+  background: #000;
+}
+.pro-process-con{
+  padding: 40rpx 0;
+}
+.pro-process-con .item-text{
+  width: 60%;  
+}
+.process{
+  width: 100%;
+  height: 16rpx;
+  background: #eee;
+  border-radius: 10rpx;
+  margin: 25rpx 0 35rpx;
+}
+.process-con{
+  background: linear-gradient(to right, #eed698, #f39800);
+  height: 100%;
+  border-radius: 10rpx 0 0 10rpx;
+  max-width: 100%;
+  position: relative;
+}
+.process-num{
+  width: 65rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: #f39800;
+  border-radius: 50rpx;
+  position: absolute;  
+  top:-12rpx;
+}
+.disabled-btn{
+  background: #c9c9c9;
+  border-color:#ddd;
+}

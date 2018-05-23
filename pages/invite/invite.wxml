@@ -1,0 +1,93 @@
+<image class="img100 invite-tit" src="../../images/invite_02.png"></image>
+
+<view class='p4'>
+  <view class='white-bg invite1'>
+    <image class='invite1-img block' src='{{init.inviteImg}}'></image>
+    <view class='invite1-btn flex f-j-between'>
+      <button class='f30 white invite-btn' open-type="share">转发好友</button>
+       <button class='f30 white invite-btn' bindtap='shareFriendCircle'>分享朋友圈</button> 
+    </view>    
+  </view>
+
+  <view class='bold white invite-title t-center '>
+    <image class='invite-title-img' src='../../images/invite_05.png'></image>
+    <text class='invite-title-text'>奖金金额</text>
+    <image class='invite-title-img' src='../../images/invite_05.png'></image>
+  </view>
+
+  <view class='white-bg invite2'>
+    <image class="invite2-img block" src="../../images/invite_09.png"></image>
+    <view class='invite2-price t-center'>￥<text class='red'>{{init.rebate}}</text></view>
+    <button class='f30 white invite-btn invite2-btn disabled-btn' wx:if='{{init.rebate==0}}'>申请提现</button>
+    <button class='f30 white invite-btn invite2-btn' wx:else bindtap='applyCash'>申请提现</button>
+    <view class='gray-8 t-center f24'>累计获得奖金￥<text class='red'>{{init.rebateTotal}}</text>元</view>
+    <navigator class='invite2-link gray-8 t-center f24' url='../inviteDetail/inviteDetail'>查看明细 ></navigator>
+  </view>
+
+  <view class='bold white invite-title t-center '>
+    <image class='invite-title-img' src='../../images/invite_05.png'></image>
+    <text class='invite-title-text'>邀请有礼</text>
+    <image class='invite-title-img' src='../../images/invite_05.png'></image>
+  </view>
+
+  <view class='white-bg invite3'>
+    <view class='invite3-con'>
+      <image class='invite3-img block' src='{{init.prizeImg}}'></image>
+      <view class='invite3-text f24 white t-center center'>
+          <view>邀请<text class='red f36'>{{init.inviteMaxCount}}</text>名好友成功打开链接</view>
+          <view>即可获得<text class='red f36'>{{init.prizeAmount}}</text>{{init.unit}}{{init.prizeName}}</view>
+      </view>
+    </view>    
+    <view class='gold f24 process-box'>
+      <text class='process-font'>0</text>   
+      <view class='process in-block'>
+        <view class='process-con' style='width:{{inviteRatio}}%'>
+          <view wx:if='{{inviteRatio<50}}' class='f24 white process-num t-center' style='right:-63rpx'>{{init.inviteCount}}</view>        
+          <view wx:else class='f24 white process-num t-center' style='right:-2rpx'>{{init.inviteCount}}</view>
+        </view>
+      </view>
+      <text class='process-font'>{{init.inviteMaxCount}}</text>
+    </view>
+    
+    
+    <button class='f30 white invite-btn invite3-btn' wx:if='{{init.inviteCount >= init.inviteMaxCount}}' bindtap='toGiftConfirm'>领取奖品</button>    
+    <button class='f30 white invite-btn invite3-btn disabled-btn' wx:else>领取奖品</button>
+    
+  </view>  
+</view>
+
+<!-- 分享朋友圈 -->
+ <view class='friendCircle' wx:if='{{showWxaCodeImg}}'> 
+<!-- <view class='friendCircle'> -->
+  <view class='fc-bg'></view>
+  <view class='fc-con'>
+    <image class='fc-cont' src="{{shareImgSrc}}"></image>    
+    <button class='f30 white invite-btn fc-btn' bindtap='saveShareImg'>保存图片</button>
+  </view>
+</view>
+
+<!-- 协议弹框 -->
+ <view class='bomb-box' wx:if='{{showBombStatus}}'>
+  <view class='black-bg'></view>
+  <view class='box-con white-bg center'>
+    <text class='item-tit block t-center f36'>温馨提示</text>
+    <view class='item-con f28'>
+      <text>我已阅读并同意以下协议：</text>
+      <navigator class='gold' url='../commitment/commitment'><text class='f36'>·</text>《产融通众筹参与者规则》</navigator>
+      <navigator class='gold' url='../userProtocol/userProtocol'><text class='f36'>·</text>《用户协议》</navigator>
+    </view>
+    <view class='item-bot f34 clear t-center'>
+      <!-- <view class='item-btn item-btn1 left' bindtap='closeBomb'>关闭</view> -->
+      <view class='item-btn gold left' bindtap='agreeBomb'>确定</view>
+    </view>
+  </view>
+</view> 
+
+<!-- 授权弹层 -->
+<view class='authorize-box' wx:if='{{showAuthorizeStatus}}'>
+  <view class='black-bg'></view>
+  <view class='authorize-con white-bg center'>
+    <text class='authorize-tit block t-center f36'>登录产融通</text>
+    <button class='authorize-btn f36 white'  open-type="getUserInfo" bindgetuserinfo="toGotUserInfo" bindtap='gotUserInfo'><image class='authorize-btn-img' src='../../images/wxlogo.png'></image>微信账号快速登录</button>
+  </view>  
+</view>

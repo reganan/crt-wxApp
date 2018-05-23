@@ -1,0 +1,54 @@
+.address{
+  margin: 20rpx 0 130rpx 0;
+}
+.icon-edit{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 50rpx;
+  position: relative;
+  top:6rpx;
+}
+.icon-del{
+  width: 48rpx;
+  height: 51rpx;
+  margin:0 0 0 30rpx;
+}
+.item{
+  padding: 30rpx 4%;
+  border-bottom: 1px solid #f1f1f1;
+  margin: 0 0 20rpx 0;
+}
+.item:last-child{
+  border: none
+}
+.item-info{
+  width: 435rpx;
+}
+.item-text{
+  line-height: 44rpx;
+}
+.item-phone{
+  margin: 0 0 0 25rpx;
+}
+.bot-btn{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 4%;
+  position: fixed;
+  bottom: 0
+}
+.save-btn{
+  width: 100%;
+  height: 86rpx;
+  border: 1rpx solid #e0b07e;
+  background: #fff;
+}
+.no-item{
+  line-height: 150rpx
+}
+.item-isDef{
+  padding: 0 10rpx;
+  border:1rpx solid #e0b07e;
+  border-radius: 5rpx;
+  margin: 0 0 0 20rpx;
+}

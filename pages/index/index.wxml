@@ -1,0 +1,149 @@
+<swiper class='banner' indicator-dots="true"  autoplay="true" interval="5000">
+  <block wx:for="{{indexImg.banner}}" wx:key="">
+    <swiper-item>
+      <image class='banner-img' bindtap='bannerTo' src="{{item.imgUrl}}" data-link="{{item.linkUrl}}" class="slide-image" bindload="imageLoad" style="width: {{imageWidth}}px;"  mode='widthFix'/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<block wx:if='{{product.proing.length > 0}}'>
+  <view class='index-proing white-bg p4'>
+    <view class='index-proing-tit t-center block f32 gray-3'>
+      <image src='../../images/icon_14.png'></image>
+      <text>{{indexImg.title1}}</text>
+      <image src='../../images/icon_15.png'></image>
+    </view>
+    <block wx:for="{{product.proing}}" wx:key="">
+      <view class='item' data-id='{{item.id}}' bindtap='toProDetail'>
+        <image class='item-img index-pro-img' src="{{item.proImg}}"></image>
+        <view class='p4'>
+          <text class='item-tit f32 t-overflow block bold'>{{item.title}}</text>
+          <text class='item-subtit f28 gray-8 t-overflow block'>{{item.subTitle}}</text>
+        <!-- <progress percent='{{item.ratio*100}}' /> -->
+          <view class='process'>
+            <view class='process-con' style='width:{{item.ratio}}%'>
+              <block wx:if='{{item.ratio<9}}'>
+                <view class='f24 white process-num t-center' style='right:-63rpx'>{{item.ratio}}%</view>
+              </block>
+            <block wx:else>
+              <view class='f24 white process-num t-center' style='right:-2rpx'>{{item.ratio}}%</view>
+              </block>
+            </view>
+          </view>
+          <view class='item-bot flex f-j-between'>
+            <view class='f32'>￥{{item.amount}}</view>
+            <view class='item-bot1 f24 gray-b'>支持人数：{{item.raiseCount}}人 <text>|</text>  剩余天数：{{item.lastDay}}天</view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+
+  <view class='gap-20'></view>
+</block>
+
+<block wx:if='{{product.pro.length > 0}}'>
+  <view class='index-pro white-bg p4'>
+    <view class='index-proing-tit t-center block f32 gray-3'>
+      <image src='../../images/icon_14.png'></image>
+      <text>{{indexImg.title2}}</text>
+      <image src='../../images/icon_15.png'></image>
+    </view>
+    <block wx:for="{{product.pro}}" wx:key="">
+      <view class='item' data-id='{{item.id}}' bindtap='toNotPublish'>
+        <image class='item-img index-pro-img' src="{{item.proImg}}"></image>
+        <view class='clear'>
+          <view class='itemL f28 left'> 
+              <text class='item-tit t-overflow block f32'>{{item.title}}</text>
+              <text class='item-subtit t-overflow block gray-b'>{{item.subTitle}}</text>
+          </view>
+          <text class='item-price f32 t-overflow block right t-right'>￥{{item.amount}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='gap-20'></view>
+</block>
+
+<block wx:if='{{product.proed.length > 0}}'>
+  <view class='index-pro white-bg p4'>
+    <view class='index-proing-tit t-center block f32 gray-3'>
+      <image src='../../images/icon_14.png'></image>
+      <text>{{indexImg.title3}}</text>
+      <image src='../../images/icon_15.png'></image>
+    </view>
+    <block wx:for="{{product.proed}}" wx:key="">
+      <view class='item' data-id='{{item.id}}' bindtap='toProedDetail'>
+        <image class='item-img index-pro-img' src="{{item.proImg}}"></image>
+        <view class='clear'>
+          <view class='itemL f28 left'> 
+              <text class='item-tit t-overflow block f32'>{{item.title}}</text>
+              <text class='item-subtit t-overflow block gray-b'>{{item.subTitle}}</text>
+          </view>
+          <text class='item-price f32 t-overflow block right t-right'>￥{{item.amount}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='gap-20'></view>
+</block>
+
+<view class='white-bg about-us p4'>  
+  <view class='index-proing-tit t-center block f32 gray-3'>
+    <image src='../../images/icon_14.png'></image>
+    <text>金恪集团</text>
+    <image src='../../images/icon_15.png'></image>
+  </view>
+  <view class='p4'>
+    <navigator url='../aboutUs1/aboutUs1'>
+    <image class='item-img img100 block' src="../../images/ab1.jpg" mode='widthFix'></image>
+    </navigator>
+    <navigator url='../aboutUs2/aboutUs2'>
+    <image class='item-img img100 block' src="../../images/ab2.jpg" mode='widthFix'></image>
+    </navigator>    
+  </view>
+  
+  <!-- <view class='about-us-text block f28 gray-b'>{{indexImg.company.content}}</view> -->
+</view>
+
+<view class='gap-20'></view>
+
+<!-- <view class='gap-20'></view>
+
+<view class='white-bg about-us'>  
+  <view class='index-proing-tit t-center block f32 gray-3'>
+    <image src='../../images/icon_14.png'></image>
+    <text>产业介绍</text>
+    <image src='../../images/icon_15.png'></image>
+  </view>
+</view> -->
+
+<!-- 协议弹框 -->
+<view class='bomb-box' wx:if='{{showBombStatus}}'>
+  <view class='black-bg'></view>
+  <view class='box-con white-bg center'>
+    <text class='item-tit block t-center f36'>温馨提示</text>
+    <view class='item-con f28'>
+      <text>我已阅读并同意以下协议：</text>
+      <navigator class='gold' url='../commitment/commitment'><text class='f36'>·</text>《产融通众筹参与者规则》</navigator>
+      <navigator class='gold' url='../userProtocol/userProtocol'><text class='f36'>·</text>《用户协议》</navigator>
+    </view>
+    <view class='item-bot f34 clear t-center'>
+       <!-- <view class='item-btn item-btn1 left' bindtap='closeBomb'>关闭</view>  -->
+      <!-- <view class='item-btn item-btn1 left'>关闭</view> -->
+      <view class='item-btn gold left' bindtap='agreeBomb'>确定</view>
+    </view>
+  </view>
+</view>
+
+<!-- 授权弹层 -->
+<view class='authorize-box' wx:if='{{showAuthorizeStatus}}'>
+  <view class='black-bg'></view>
+  <view class='authorize-con white-bg center'>
+    <text class='authorize-tit block t-center f36'>登录产融通</text>
+    <button class='authorize-btn f36 white'  open-type="getUserInfo" bindgetuserinfo="toGotUserInfo" bindtap='gotUserInfo'><image class='authorize-btn-img' src='../../images/wxlogo.png'></image>微信账号快速登录</button>
+  </view>  
+</view>

@@ -1,0 +1,29 @@
+<view data-action='gift' bindtap='toGiftAddr'>
+  <block wx:if='{{defAddress == null}}'>  
+        <view class='no-addr white-bg f28 t-center gray-8 {{addrErr}}'>
+          没有地址信息，请点击添加地址
+        </view>
+  </block>
+  <block wx:else>
+    <view class='addr-info white-bg f28 flex f-a-center'>
+      <image class='addr-info-img f-shrink0' src='../../images/icon_7.png'></image>
+      <view class='f-grow1'>
+        <text class='block f30' space='true'>{{defAddress.receiverName}} {{defAddress.receiverPhone}}</text>
+        <text class='block f28 gray-8'>{{defAddress.receiverAddress}}</text>
+      </view>
+      <image class='addr-info-arrow f-shrink0' src='../../images/icon_9.png'></image>
+    </view>    
+  </block>
+</view>
+
+<view class='gap-20'></view>
+
+<view class='c-p-info clear white-bg'>
+  <image class='c-p-img left' src='{{prizeImg}}'></image>
+  <view class='c-p-text'>
+    <text class='block t-overflow f32'>{{prizeName}}</text>    
+    <text class='c-p-font f28 gray-8 block right'>x 1</text>
+  </view>
+</view>
+
+<button class='pro-d-btn f32 white' bindtap='getGift'>确认领取</button>

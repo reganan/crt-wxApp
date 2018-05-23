@@ -1,0 +1,9 @@
+<view class='t-center shareSuccess'>
+  <icon type='success' size="80" />
+  <view class='title'>支持成功！</view>
+  <view class='text margin24'>
+    <text>我们将在众筹成功后，抽取幸运者发放奖品\n感谢您的支持，祝您好运！</text>
+  </view>
+  
+  <button class='homeButton  f32' hover-class='none' bindtap='toOrderPage'>查看订单</button>
+</view>

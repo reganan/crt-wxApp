@@ -1,0 +1,139 @@
+page{
+  height:100%;
+}
+scroll-view{
+  height:100%;
+}
+.bot-view{
+  height: 130rpx;
+}
+.no-addr{
+  line-height: 88rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.addr-info{
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 30rpx 4%
+}
+.addr-info-img{
+  width: 34rpx;
+  height: 38rpx;
+  margin: 0 25rpx 0 0;
+}
+.addr-info-arrow{
+  width: 16rpx;
+  height: 25rpx;
+  margin: 0 0 0 25rpx;
+}
+.c-p-info{
+  padding: 30rpx 4%;height: 150rpx;
+}
+.c-p-img{
+  width: 160rpx;
+  height: 150rpx;
+}
+.c-p-text{
+  margin: 0 0 0 180rpx;
+}
+.c-p-font{
+  margin: 0rpx 0 20rpx;
+}
+.buy-num{
+  height: 98rpx;
+
+}
+.buy-num button,.buy-num input{
+  width: 65rpx;
+  height:60rpx;
+  line-height:56rpx;
+  border-color:#fff!important;
+  display: inline-block;
+  text-align: center;
+  padding: 0
+}
+.buy-num1{
+  border-top:1rpx solid #eee;
+  border-bottom:1rpx solid #eee;
+}
+.buy-msg{
+  padding: 20rpx 30rpx;
+  background: #fffbf8;
+  border:1rpx solid #e1b278;  
+}
+.buy-info{
+  padding: 0 4% 35rpx;
+}
+.c-no-bank{
+  background: #f4fbff;
+  border-top: 1rpx solid #7ecef4;
+  border-bottom: 1rpx solid #7ecef4;
+  line-height: 85rpx;
+}
+.c-bank{
+  background: #f4fbff;
+  border-top: 1rpx solid #7ecef4;
+  border-bottom: 1rpx solid #7ecef4;
+  padding: 35rpx 4%;
+}
+.c-bank view{
+  width: 46%;
+  max-width: 49%;
+}
+.c-m-item{
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.c-m-item1{
+  line-height: 88rpx;
+}
+.c-m-item1 text{
+  color: #1732a5;
+}
+.no-border{
+  border:none
+}
+.bot-btn{
+  width:100%; 
+  height: 98rpx;
+  line-height: 98rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top:1rpx solid #f5f5f5; 
+}
+.bot-btn1{
+  width: 65%;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 0;
+}
+.bot-btn2{
+  width: 35%;
+  background: #e0b17d;
+}
+.bot-btn3{
+  width:35%;
+  background: #e0b17d;  
+  border-radius: 0;
+  line-height: 98rpx;  
+}
+.bot-btn3::after{
+  border: none;
+}
+.errmsg{
+  box-sizing: border-box;
+  border: 1px solid #cc3333; 
+}
+.warm-msg{
+  width: 92%;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+  background: #fef3f3;
+  border: 1px solid #f43530;
+  color: #f43530;
+  padding: 10rpx 4%;
+}
+.c-buy1{
+  padding: 4%;  
+}

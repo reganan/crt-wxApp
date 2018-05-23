@@ -1,0 +1,148 @@
+<view class='order-top white p4 flex f-j-between f24' wx:if='{{orderDetail.orderType!=2 && orderDetail.orderStatus!=2 && orderDetail.orderStatus!=3}}'>
+  <text><text class='f32'>项目{{orderDetail.status}}</text>（剩余时间：{{orderDetail.reapyTime
+}}天）</text>
+  <text><text class='f36'>{{orderDetail.ratio}}</text>%</text>
+</view>
+<!-- <view wx:if='{{orderDetail.category==1 && orderDetail.orderStatus!=2 && orderDetail.orderStatus!=3}}' class='f26 t-center white order-top1'>{{orderDetail.statusDesc}}</view> -->
+
+<view class='order-top white p4 f32 t-center' wx:if='{{orderDetail.orderStatus==2}}'>
+  退款中
+</view>
+
+<view class='order-top white p4 f32 t-center' wx:if='{{orderDetail.orderStatus==3}}'>
+  退款成功
+</view>
+
+<view class='gap-20'></view>
+
+<view class='addr-info white-bg f28 flex f-a-center'>
+  <image class='addr-info-img f-shrink0' src='../../images/icon_7.png'></image>
+  <view class='f-grow1'>
+    <text class='block f30' space='true'>{{orderDetail.receiverName}} {{orderDetail.receiverPhone}}</text>
+    <text class='block f28 gray-8'>{{orderDetail.receiverAddress}}</text>
+  </view>  
+</view>
+
+<view class='gap-20'></view>
+
+<block wx:if='{{orderDetail.orderType!=2}}'>
+  <view class='c-p-info clear white-bg'>
+    <image class='c-p-img left' src='{{orderDetail.proImg}}'></image>    
+    <view class='c-p-text'> 
+      <text class='block t-overflow f32'>{{orderDetail.title}}</text>
+      <text class='c-p-font block t-overflow f28 gray-8'>{{orderDetail.subTitle}}</text>
+      <view class='clear'>
+        <text class='f32 left'>￥{{orderDetail.amount}}</text>
+        <text class='right f28 gray-8'>x {{orderDetail.buyNum}}</text>   
+      </view>     
+    </view>
+  </view>
+</block>
+<block wx:else><!-- 分销类 -->
+  <view class='c-p-info clear white-bg'>    
+    <image class='c-p-img1 left' src='{{orderDetail.proImg}}'></image>
+    <view class='c-p-text c-p-text1'> 
+      <text class='block t-overflow f32'>{{orderDetail.title}}</text>      
+      <view class='clear c-p-font1'>       
+        <text class='right f28 gray-8'>x {{orderDetail.buyNum}}</text>   
+      </view>     
+    </view>
+  </view>
+</block>
+
+<block wx:if='{{orderDetail.category==1}}'><!-- 投资类 -->
+  <view class='p4 white-bg'>
+    <view class='buy-msg f28'>
+      <text class='block'>今日购买，预计<text class='orange'> {{orderDetail.repayDate}} </text>日回报</text>
+
+      <block wx:if='{{orderDetail.isRepay==1}}'><!-- 有回报实物 目前为香榧鸡众筹 -->
+        <text class='block gray-8'>1.  {{orderDetail.repayName}} <text class='orange'>{{orderDetail.repayCount}}</text> 只；</text>
+        <text class='block gray-8'>2.  余下{{orderDetail.repayName}}代售款<text class='orange'> {{orderDetail.repayAmount}} </text> 元；</text>
+        <text class='block gray-8'>3.  <text class='orange'>{{orderDetail.giftCount}} </text>{{orderDetail.giftUnit}}{{orderDetail.giftName}}。</text>
+      </block>
+
+      <rich-text wx:else class='gray-8 t-justify' nodes='{{orderDetail.repayContext}}'></rich-text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view class='c-bank p4 flex f-j-between f28'>
+    <view>
+      <text class='block'>{{orderDetail.realName}}   {{orderDetail.mobilePhone}}</text>
+      <text class='block gray-8'>{{orderDetail.idCard}}</text>
+    </view>
+    <view>
+      <text class='block t-overflow'>{{orderDetail.bankName}}({{orderDetail.bankInfo}})</text>
+      <text class='block gray-8'>{{orderDetail.bankCard}}</text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view class='c-money p4 f28 white-bg'>
+    <view class='c-m-item flex f-j-between'>
+      <text>预计可获得：</text>
+      <view class='t-right'>
+        <text class='red block'>￥<text class='f36'>{{orderDetail.repayAmount}}</text></text>
+        <block  wx:if='{{orderDetail.isRepay == 1}}'>
+          <text class='block'>{{orderDetail.repayCount}}{{orderDetail.repayUnit}}{{orderDetail.repayName}}</text>
+        </block>
+        <text class='block'>{{orderDetail.giftCount}}{{orderDetail.giftUnit}}{{orderDetail.giftName}}</text>
+      </view>
+    </view>
+    <view class='c-m-item flex f-j-between'>
+      <text>运费：</text>
+      <text>￥{{orderDetail.freight}}</text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view class='toContract flex f-j-between p4 white-bg f-a-center f28' bindtap='toContract'>
+    <text>项目合同：</text>
+    <image class='addr-info-arrow f-shrink0' src='../../images/icon_9.png'></image>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view  class='c-info f24 gray-8 p4 white-bg'>
+    <text class='block'>订单编号：{{orderDetail.orderNo}}</text>
+    <text class='block'>下单时间：{{orderDetail.createOrderTime}}</text>
+    <text class='block' wx:if='{{orderDetail.isRepay == 1}}'>认养鸡编号：{{orderDetail.startNum}} - {{orderDetail.endNum}}</text>
+  </view>
+
+</block>
+
+<block wx:else>
+  <view class='p4 white-bg' wx:if='{{orderDetail.orderType!=2}}'>
+    <view class='buy-msg f28'>
+      <text class='block'>今日购买，预计<text class='orange'>{{orderDetail.repayDate}}</text>日回报</text>
+      <!-- <text class='gray-8 t-justify block'>选择此项，表示您对我们众筹项目的认可，购买成功并转发，我们将在众筹成功后，抽取3名支持者赠送一箱香榧鸡蛋给您。</text> -->
+      <rich-text  class='gray-8 t-justify' nodes='{{orderDetail.repayContext}}'></rich-text>
+    </view>
+  </view>
+
+  <view class='gap-20' wx:if='{{orderDetail.orderType!=2}}'></view>
+
+  <view class='c-money p4 f28 white-bg' wx:if='{{orderDetail.orderType!=2}}'>    
+    <view class='c-m-item flex f-j-between'>
+      <text>运费：</text>
+      <text>￥{{orderDetail.freight}}</text>
+    </view>
+  </view>
+
+  <view class='gap-20'></view>
+
+  <view  class='c-info f24 gray-8 p4 white-bg'>
+    <text class='block'>订单编号：{{orderDetail.orderNo}}</text>
+    <text class='block'>下单时间：{{orderDetail.createOrderTime}}</text>
+  </view>
+</block>
+
+<view class='gap-20'></view>
+
+<view class='t-right p4 c-payMount f28 white-bg' wx:if='{{orderDetail.orderType!=2}}'>付款金额：￥{{orderDetail.payAmount}} </view>
+<view class='gold t-center f28 c-call white-bg' bindtap='calling'>客服电话：{{servicePhone}}</view>
+<!-- <view class='gray-8 t-center f28 refund' bindtap='replyRefund' wx:if='{{orderDetail.amount!=0 && orderDetail.orderStatus == 1}}'>申请退款</view> -->
+
